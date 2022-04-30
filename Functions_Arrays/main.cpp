@@ -41,10 +41,10 @@ void shiftRight(float Arr[], int SIZE, int num_of_elements);
 void shiftRight(double Arr[], int SIZE, int num_of_elements);
 void shiftRight(char Arr[], int SIZE, int num_of_elements);
 
-int Sort(int Arr[], int SIZE);
-float Sort(float Arr[], int SIZE);
-double Sort(double Arr[], int SIZE);
-char Sort(char Arr[], int SIZE);
+void Sort(int Arr[], int SIZE);
+void Sort(float Arr[], int SIZE);
+void Sort(double Arr[], int SIZE);
+void Sort(char Arr[], int SIZE);
 
 void main()
 {
@@ -126,6 +126,16 @@ void main()
 	shiftRight(dArray, SIZE, elem_num); cout << endl;
 	Print(dArray, SIZE); cout << endl;
 	shiftRight(chArray, SIZE, elem_num); cout << endl;
+	Print(chArray, SIZE); cout << endl;
+	cout << endl;
+	cout << "Отсортированные по возрастанию массивы: " << endl;
+	Sort(intArray, SIZE);
+	Print(intArray, SIZE); cout << endl;
+	Sort(fArray, SIZE);
+	Print(fArray, SIZE); cout << endl;
+	Sort(dArray, SIZE);
+	Print(dArray, SIZE); cout << endl;
+	Sort(chArray, SIZE);
 	Print(chArray, SIZE); cout << endl;
 }
 
@@ -457,7 +467,74 @@ void shiftRight(char Arr[], int SIZE, int num_of_elements)
 	}
 }
 
-int Sort(int Arr[], int SIZE);
-float Sort(float Arr[], int SIZE);
-double Sort(double Arr[], int SIZE);
-char Sort(char Arr[], int SIZE);
+void Sort(int Arr[], int SIZE)
+{
+	for (int i = 0; i < SIZE; i++)
+	{
+		int min_indx = i;
+		for (int j = i + 1; j < SIZE; j++)
+		{
+			if (Arr[j] < Arr[min_indx]) min_indx = j;
+		}
+		if (min_indx != i)
+		{
+			int buffer = Arr[i];
+			Arr[i] = Arr[min_indx];
+			Arr[min_indx] = buffer;
+		}
+	}	
+}
+
+void Sort(float Arr[], int SIZE)
+{
+	for (int i = 0; i < SIZE; i++)
+	{
+		int min_indx = i;
+		for (int j = i + 1; j < SIZE; j++)
+		{
+			if (Arr[j] < Arr[min_indx]) min_indx = j;
+		}
+		if (min_indx != i)
+		{
+			float buffer = Arr[i];
+			Arr[i] = Arr[min_indx];
+			Arr[min_indx] = buffer;
+		}
+	}
+}
+
+void Sort(double Arr[], int SIZE)
+{
+	for (int i = 0; i < SIZE; i++)
+	{
+		int min_indx = i;
+		for (int j = i + 1; j < SIZE; j++)
+		{
+			if (Arr[j] < Arr[min_indx]) min_indx = j;
+		}
+		if (min_indx != i)
+		{
+			double buffer = Arr[i];
+			Arr[i] = Arr[min_indx];
+			Arr[min_indx] = buffer;
+		}
+	}
+}
+
+void Sort(char Arr[], int SIZE)
+{
+	for (int i = 0; i < SIZE; i++)
+	{
+		int min_indx = i;
+		for (int j = i + 1; j < SIZE; j++)
+		{
+			if (Arr[j] < Arr[min_indx]) min_indx = j;
+		}
+		if (min_indx != i)
+		{
+			char buffer = Arr[i];
+			Arr[i] = Arr[min_indx];
+			Arr[min_indx] = buffer;
+		}
+	}
+}
