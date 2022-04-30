@@ -110,15 +110,23 @@ void main()
 	cout << endl << endl;
 	cout << "Сдвиг элементов влево:" << endl;
 	shiftLeft(intArray, SIZE, elem_num); cout << endl;
+	Print(intArray, SIZE); cout << endl;
 	shiftLeft(fArray, SIZE, elem_num); cout << endl;
+	Print(fArray, SIZE); cout << endl;
 	shiftLeft(dArray, SIZE, elem_num); cout << endl;
+	Print(dArray, SIZE); cout << endl;
 	shiftLeft(chArray, SIZE, elem_num); cout << endl;
+	Print(chArray, SIZE); cout << endl;
 	cout << endl;
 	cout << "Сдвиг элементов вправо: " << endl;
 	shiftRight(intArray, SIZE, elem_num); cout << endl;
+	Print(intArray, SIZE); cout << endl;
 	shiftRight(fArray, SIZE, elem_num); cout << endl;
+	Print(fArray, SIZE); cout << endl;
 	shiftRight(dArray, SIZE, elem_num); cout << endl;
+	Print(dArray, SIZE); cout << endl;
 	shiftRight(chArray, SIZE, elem_num); cout << endl;
+	Print(chArray, SIZE); cout << endl;
 }
 
 void FillRand(int Arr[], const int SIZE)
@@ -231,54 +239,22 @@ char Sum(char Arr[], int SIZE)
 
 double Avg(int Arr[], int SIZE)
 {
-	double sum = 0, avg;
-	for (int i = 0; i < SIZE; i++)
-	{
-		sum += Arr[i];
-	}
-
-	avg = sum / SIZE;
-
-	return avg;
+	return (double) Sum(Arr, SIZE) / SIZE;
 }
 
 double Avg(float Arr[], int SIZE)
 {
-	double sum = 0, avg;
-	for (int i = 0; i < SIZE; i++)
-	{
-		sum += Arr[i];
-	}
-
-	avg = sum / SIZE;
-
-	return avg;
+	return (double) Sum(Arr, SIZE) / SIZE;
 }
 
 double Avg(double Arr[], int SIZE)
 {
-	double sum = 0, avg;
-	for (int i = 0; i < SIZE; i++)
-	{
-		sum += Arr[i];
-	}
-
-	avg = sum / SIZE;
-
-	return avg;
+	return (double) Sum(Arr, SIZE) / SIZE;
 }
 
 char Avg(char Arr[], int SIZE)
 {
-	double sum = 0, avg;
-	for (int i = 0; i < SIZE; i++)
-	{
-		sum += Arr[i];
-	}
-
-	avg = sum / SIZE;
-
-	return avg;
+	return (char) Sum(Arr, SIZE) / SIZE;
 }
 
 int minValueIn(int Arr[], int SIZE)
@@ -381,11 +357,6 @@ void shiftLeft(int Arr[], int SIZE, int num_of_elements)
 		}
 		Arr[SIZE - 1] = buffer;
 	}
-
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout << Arr[i] << "\t";
-	}
 }
 void shiftLeft(float Arr[], int SIZE, int num_of_elements)
 {
@@ -398,11 +369,6 @@ void shiftLeft(float Arr[], int SIZE, int num_of_elements)
 			Arr[j] = Arr[j + 1];
 		}
 		Arr[SIZE - 1] = buffer;
-	}
-
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout << Arr[i] << "\t";
 	}
 }
 
@@ -418,11 +384,6 @@ void shiftLeft(double Arr[], int SIZE, int num_of_elements)
 		}
 		Arr[SIZE - 1] = buffer;
 	}
-
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout << Arr[i] << "\t";
-	}
 }
 
 void shiftLeft(char Arr[], int SIZE, int num_of_elements)
@@ -436,11 +397,6 @@ void shiftLeft(char Arr[], int SIZE, int num_of_elements)
 			Arr[j] = Arr[j + 1];
 		}
 		Arr[SIZE - 1] = buffer;
-	}
-
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout << Arr[i] << "\t";
 	}
 }
 
@@ -456,11 +412,6 @@ void shiftRight(int Arr[], int SIZE, int num_of_elements)
 		}
 		Arr[0] = buffer;
 	}
-
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout << Arr[i] << "\t";
-	}
 }
 
 void shiftRight(float Arr[], int SIZE, int num_of_elements)
@@ -474,11 +425,6 @@ void shiftRight(float Arr[], int SIZE, int num_of_elements)
 			Arr[j] = Arr[j - 1];
 		}
 		Arr[0] = buffer;
-	}
-
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout << Arr[i] << "\t";
 	}
 }
 
@@ -495,10 +441,6 @@ void shiftRight(double Arr[], int SIZE, int num_of_elements)
 		Arr[0] = buffer;
 	}
 
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout << Arr[i] << "\t";
-	}
 }
 
 void shiftRight(char Arr[], int SIZE, int num_of_elements)
@@ -512,11 +454,6 @@ void shiftRight(char Arr[], int SIZE, int num_of_elements)
 			Arr[j] = Arr[j - 1];
 		}
 		Arr[0] = buffer;
-	}
-
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout << Arr[i] << "\t";
 	}
 }
 
