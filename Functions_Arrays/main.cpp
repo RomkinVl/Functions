@@ -3,10 +3,13 @@ using namespace std;
 
 const int ROWS = 4, COLS = 4;
 
-void FillRand(int Arr[], const int SIZE);
+template<typename T>
+T FillRand(T Arr[], const int SIZE);
+/*
 void FillRand(float Arr[], int SIZE);
 void FillRand(double Arr[], int SIZE);
 void FillRand(char Arr[], int SIZE);
+*/
 
 void FillRand(int Arr[ROWS][COLS], const int ROWS, const int COLS);
 void FillRand(float Arr[ROWS][COLS], const int ROWS, const int COLS);
@@ -261,13 +264,15 @@ void main()
 
 }
 
-void FillRand(int Arr[], const int SIZE)
+template<typename T>
+T FillRand(T Arr[], const int SIZE)
 {
 	for (int i = 0; i < SIZE; i++)
 	{
 		Arr[i] = rand() % 100;
 	}
 }
+/*
 void FillRand(float Arr[], int SIZE)
 {
 	for (int i = 0; i < SIZE; i++)
@@ -289,6 +294,7 @@ void FillRand(char Arr[], int SIZE)
 		Arr[i] = rand() % 255;
 	}
 }
+*/
 
 void FillRand(int Arr[ROWS][COLS], const int ROWS, const int COLS)
 {
