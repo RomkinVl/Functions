@@ -22,6 +22,9 @@ void MultiArray(T Arr1[ROWS][COLS], T Arr2[ROWS][COLS], T newArr[ROWS][COLS], in
 template <typename T>
 T Determinant(T Arr[ROWS][COLS], int ROWS, int COLS);
 
+template <typename T>
+void Reverse(T Arr[ROWS][COLS], const int ROWS, const int COLS);
+
 void main()
 {
     setlocale(LC_ALL, "");
@@ -60,6 +63,16 @@ void main()
     cout << endl << endl;
 
     cout << "Определитель первой матрицы равен " << Determinant(Arr1, ROWS, COLS) << ", определитель второй матрицы равен " << Determinant(Arr2, ROWS, COLS) << endl << endl;
+    
+    cout << "Первая матрица после транспонирования: " << endl;
+    Reverse(Arr1, ROWS, COLS);
+    Print(Arr1, ROWS, COLS);
+    cout << endl << endl;
+
+    cout << "Вторая матрица после транспонирования: " << endl;
+    Reverse(Arr2, ROWS, COLS);
+    Print(Arr2, ROWS, COLS);
+    cout << endl << endl;
 
  }
 
@@ -132,5 +145,36 @@ void MultiArray(T Arr1[ROWS][COLS], T Arr2[ROWS][COLS], T newArr[ROWS][COLS], in
 template <typename T>
 T Determinant(T Arr[ROWS][COLS], int ROWS, int COLS)
 {
-    return Arr[0][0] * Arr[1][1] * Arr[2][2] + Arr[2][0] * Arr[0][1] * Arr[1][2] + Arr[1][0] * Arr[2][1] * Arr[0][2] - Arr[2][0] * Arr[1][1] * Arr[0][2] - Arr[0][0] * Arr[2][1] * Arr[1][2] - Arr[1][0] * Arr[0][1] * Arr[2][2];
+    return    Arr[0][0] * Arr[1][1] * Arr[2][2]
+            + Arr[2][0] * Arr[0][1] * Arr[1][2] 
+            + Arr[1][0] * Arr[2][1] * Arr[0][2] 
+            - Arr[2][0] * Arr[1][1] * Arr[0][2] 
+            - Arr[0][0] * Arr[2][1] * Arr[1][2] 
+            - Arr[1][0] * Arr[0][1] * Arr[2][2];
+}
+
+template <typename T>
+void Reverse(T Arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+    T COL1[3], COL2[3], COL3[3];
+
+    for (int i = 0; i < ROWS; i++)
+    {
+        for (int j = 0; j < COLS; j++)
+        {
+            if (i == 0) COL1[j] = Arr[i][j];
+            if (i == 1) COL2[j] = Arr[i][j];
+            if (i == 2) COL3[j] = Arr[i][j];
+        }
+    }
+
+    for (int i = 0; i < COLS; i++)
+    {
+        for (int j = 0; j < ROWS; j++)
+        {
+            if (i == 0) Arr[j][i] = COL1[j];
+            if (i == 1) Arr[j][i] = COL2[j];
+            if (i == 2) Arr[j][i] = COL3[j];
+        }
+    }
 }
