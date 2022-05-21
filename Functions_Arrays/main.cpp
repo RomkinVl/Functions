@@ -4,27 +4,36 @@ using namespace std;
 const int ROWS = 4, COLS = 4;
 
 template<typename T>
-T FillRand(T Arr[], const int SIZE);
+void FillRand(T Arr[], const int SIZE);
 /*
 void FillRand(float Arr[], int SIZE);
 void FillRand(double Arr[], int SIZE);
 void FillRand(char Arr[], int SIZE);
 */
 
-void FillRand(int Arr[ROWS][COLS], const int ROWS, const int COLS);
+template<typename T>
+void FillRand(T Arr[ROWS][COLS], const int ROWS, const int COLS);
+/*
 void FillRand(float Arr[ROWS][COLS], const int ROWS, const int COLS);
 void FillRand(double Arr[ROWS][COLS], const int ROWS, const int COLS);
 void FillRand(char Arr[ROWS][COLS], const int ROWS, const int COLS);
+*/
 
-void Print(int Arr[], int SIZE);
+template<typename T>
+void Print(T Arr[], int SIZE);
+/*
 void Print(float Arr[], int SIZE);
 void Print(double Arr[], int SIZE);
 void Print(char Arr[], int SIZE);
+*/
 
-void Print(int Arr[ROWS][COLS], const int ROWS, const int COLS);
+template<typename T>
+void Print(T Arr[ROWS][COLS], const int ROWS, const int COLS);
+/*
 void Print(float Arr[ROWS][COLS], const int ROWS, const int COLS);
 void Print(double Arr[ROWS][COLS], const int ROWS, const int COLS);
 void Print(char Arr[ROWS][COLS], const int ROWS, const int COLS);
+*/
 
 int Sum(int Arr[], int SIZE);
 float Sum(float Arr[], int SIZE);
@@ -265,11 +274,11 @@ void main()
 }
 
 template<typename T>
-T FillRand(T Arr[], const int SIZE)
+void FillRand(T Arr[], const int SIZE)
 {
 	for (int i = 0; i < SIZE; i++)
 	{
-		Arr[i] = rand() % 100;
+		Arr[i] = rand() % 0.001;
 	}
 }
 /*
@@ -287,6 +296,7 @@ void FillRand(double Arr[], int SIZE)
 		Arr[i] = rand() * 0.001;
 	}
 }
+*/
 void FillRand(char Arr[], int SIZE)
 {
 	for (int i = 0; i < SIZE; i++)
@@ -294,18 +304,19 @@ void FillRand(char Arr[], int SIZE)
 		Arr[i] = rand() % 255;
 	}
 }
-*/
 
-void FillRand(int Arr[ROWS][COLS], const int ROWS, const int COLS)
+template<typename T>
+void FillRand(T Arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	for (int i = 0; i < ROWS; i++)
 	{
 		for (int j = 0; j < COLS; j++)
 		{
-			Arr[i][j] = rand() % 100;
+			Arr[i][j] = rand() % 0.001;
 		}
 	}
 }
+/*
 void FillRand(float Arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	for (int i = 0; i < ROWS; i++)
@@ -326,6 +337,7 @@ void FillRand(double Arr[ROWS][COLS], const int ROWS, const int COLS)
 		}
 	}
 }
+*/
 void FillRand(char Arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	for (int i = 0; i < ROWS; i++)
@@ -337,13 +349,15 @@ void FillRand(char Arr[ROWS][COLS], const int ROWS, const int COLS)
 	}
 }
 
-void Print(int Arr[], int SIZE)
+template<typename T>
+void Print(T Arr[], int SIZE)
 {
 	for (int i = 0; i < SIZE; i++)
 	{
 		cout << Arr[i] << "\t";
 	}
 }
+/*
 void Print(float Arr[], int SIZE)
 {
 	for (int i = 0; i < SIZE; i++)
@@ -365,8 +379,10 @@ void Print(char Arr[], int SIZE)
 		cout << Arr[i] << "\t";
 	}
 }
+*/
 
-void Print(int Arr[ROWS][COLS], const int ROWS, const int COLS)
+template<typename T>
+void Print(T Arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	for (int i = 0; i < ROWS; i++)
 	{
@@ -378,6 +394,7 @@ void Print(int Arr[ROWS][COLS], const int ROWS, const int COLS)
 		cout << endl;
 	}
 }
+/*
 void Print(float Arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	for (int i = 0; i < ROWS; i++)
@@ -414,6 +431,7 @@ void Print(char Arr[ROWS][COLS], const int ROWS, const int COLS)
 		cout << endl;
 	}
 }
+*/
 
 int Sum(int Arr[], int SIZE)
 {
